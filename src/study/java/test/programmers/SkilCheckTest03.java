@@ -29,6 +29,9 @@ n	lost	reserve	    return
 ※ 공지 - 2019년 2월 18일 지문이 리뉴얼되었습니다.
 ※ 공지 - 2019년 2월 27일, 28일 테스트케이스가 추가되었습니다.
 
+
+A
+not yet
  */
 public class SkilCheckTest03 {
 

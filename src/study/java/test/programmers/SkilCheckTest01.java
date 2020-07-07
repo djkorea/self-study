@@ -19,6 +19,9 @@ AB	    1	BC
 z	    1	a
 a B z	4	e F d
 
+
+A
+not yet
  */
 public class SkilCheckTest01 {
     public static void main(String[] args) {
