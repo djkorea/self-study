@@ -1,4 +1,4 @@
-package study.java.test.programmers.SkillCheck;
+package study.java.test.programmers.skillCheckLv1;
 
 /*
 카카오톡에 뜬 네 번째 별! 심심할 땐? 카카오톡 게임별~

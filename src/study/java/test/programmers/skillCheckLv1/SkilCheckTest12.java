@@ -1,4 +1,4 @@
-package study.java.test.programmers.SkillCheck;
+package study.java.test.programmers.skillCheckLv1;
 
 /*
 카카오톡 게임별의 하반기 신규 서비스로 다트 게임을 출시하기로 했다. 다트 게임은 다트판에 다트를 세 차례 던져 그 점수의 합계로 실력을 겨루는 게임으로, 모두가 간단히 즐길 수 있다.

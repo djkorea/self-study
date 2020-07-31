@@ -1,4 +1,4 @@
-package study.java.test.programmers.SkillCheck;
+package study.java.test.programmers.skillCheckLv1;
 
 /*
 문제 설명
