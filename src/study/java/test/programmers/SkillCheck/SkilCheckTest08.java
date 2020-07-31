@@ -1,9 +1,6 @@
-package study.java.test.programmers;
-
-import com.sun.tools.javac.util.ArrayUtils;
+package study.java.test.programmers.SkillCheck;
 
 import java.util.Arrays;
-import java.util.Collections;
 
 /*
 문제 설명

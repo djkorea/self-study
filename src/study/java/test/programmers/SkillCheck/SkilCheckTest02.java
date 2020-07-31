@@ -1,7 +1,4 @@
-package study.java.test.programmers;
-
-import java.util.ArrayList;
-import java.util.List;
+package study.java.test.programmers.SkillCheck;
 
 /*
 문제 설명

@@ -1,6 +1,10 @@
-package study.java.test.programmers;
+package study.java.test.programmers.SkillCheck;
 
 /*
+카카오톡에 뜬 네 번째 별! 심심할 땐? 카카오톡 게임별~
+
+Game Star
+
 카카오톡 게임별의 하반기 신규 서비스로 다트 게임을 출시하기로 했다. 다트 게임은 다트판에 다트를 세 차례 던져 그 점수의 합계로 실력을 겨루는 게임으로, 모두가 간단히 즐길 수 있다.
 갓 입사한 무지는 코딩 실력을 인정받아 게임의 핵심 부분인 점수 계산 로직을 맡게 되었다. 다트 게임의 점수 계산 로직은 아래와 같다.
 
@@ -35,55 +39,72 @@ Single(S), Double(D), Triple(T)은 점수마다 하나씩 존재한다.
 5	1D#2S*3S	5	12 * (-1) * 2 + 21 * 2 + 31
 6	1T2D3D#	-4	13 + 22 + 32 * (-1)
 7	1D2S3T*	59	12 + 21 * 2 + 33 * 2
-해설 보러가기
 
+A
 
-
+채점 결과
+정확성: 50.0
+효율성: 0.0
+합계: 50.0 / 50
  */
-public class SkilCheckTest12 {
+public class SkilCheckTest15 {
     public static void main(String[] args) {
-        String str = "1S2D*3T";
-        SkilCheckTest12 test = new SkilCheckTest12();
-        System.out.println(test.solution(str));
+        SkilCheckTest15 test = new SkilCheckTest15();
+        System.out.println(test.solution("1D2S#10S"));
+
     }
+
+    int round1Score = 0;
+    int round2Score = 0;
+    int round3Score = 0;
+
+    int round = 0;
 
     public int solution(String dartResult) {
-        int total = 0;
+        int answer = 0;
 
-        for (int j = 0; j < 3; j++) {
-            int roundScore = -1;
 
-            for (int i = 0; i < dartResult.length(); i++) {
+        for (int i = 0; i < dartResult.length(); i++) {
+            String ch = String.valueOf(dartResult.charAt(i));
+            if(Character.isDigit(dartResult.charAt(i))){
+                round++;
 
-                if (Character.isDigit(dartResult.charAt(i))) {
-                    if(roundScore >= 0){
-                        roundScore = -1;
-                    }
-                    // 점수
-                    roundScore = Integer.parseInt(String.valueOf(dartResult.charAt(i)));
-                } else if ("*".equals(dartResult.charAt(i)) || "#".equals(dartResult.charAt(i))) {
-                    // * x2, # * -1
-                    if("*".equals(dartResult.charAt(i))){
-                        roundScore = (int)Math.pow(roundScore, 2);
-                    }else{
-                        roundScore = roundScore * -1;
-                    }
-                } else {
-                    // S D T
-                    roundScore = bonus(roundScore, String.valueOf(dartResult.charAt(i)));
+                if(Character.isDigit(dartResult.charAt(i+1))){
+                    ch = ch + String.valueOf(dartResult.charAt(i+1));
+                    i++;
                 }
-                System.out.println(roundScore);
+                int score = Integer.parseInt(ch);
+                setScore(score);
+
+            }else if("*".equals(ch)){
+                setPreScore(getPreScore() * 2);
+                setScore(getScore() * 2);
+            }else if("#".equals(ch)){
+                setScore(getScore() * -1);
+            }else{
+                setScore((int)Math.pow(getScore(), "S".equals(ch) ? 1 : "D".equals(ch) ? 2 : "T".equals(ch) ? 3 : 0));
             }
-            total = total + roundScore;
-            System.out.println("------");
-            System.out.println(roundScore+"\t"+total);
-            System.out.println();
         }
 
-        return total;
+        return round1Score + round2Score + round3Score;
     }
 
-    private int bonus(int score, String bonus){
-        return (int)Math.pow(score, "S".equals(bonus)?1:"D".equals(bonus)?2:"T".equals(bonus)?3:1);
+    private int getScore(){
+        return round == 1 ? round1Score : round == 2 ? round2Score : round3Score;
+    }
+
+    private int getPreScore(){
+        return round == 1 ? 0 : round == 2 ? round1Score : round2Score;
+    }
+
+    private void setScore(int score){
+        if(round == 1) round1Score = score;
+        else if(round == 2) round2Score = score;
+        else round3Score = score;
+    }
+
+    private void setPreScore(int score){
+        if(round == 2) round1Score = score;
+        else if(round == 3) round2Score = score;
     }
 }

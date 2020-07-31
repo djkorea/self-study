@@ -1,4 +1,4 @@
-package study.java.test.programmers;
+package study.java.test.programmers.SkillCheck;
 
 import java.util.ArrayList;
 import java.util.Collections;
